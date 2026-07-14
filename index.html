@@ -2,11 +2,305 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Sky Route Gamer</title>
+    <style>
+        :root {
+            color-scheme: dark;
+            font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #070b18;
+            color: #f5f7ff;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            line-height: 1.6;
+            background: radial-gradient(circle at top, rgba(102, 126, 234, 0.25), transparent 35%),
+                        linear-gradient(180deg, #0d1223 0%, #070b18 100%);
+        }
+
+        .page {
+            display: flex;
+            flex-direction: column;
+            gap: 4rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem 3rem;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 0.85rem;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .brand-mark {
+            width: 44px;
+            height: 44px;
+            border-radius: 16px;
+            background: linear-gradient(135deg, #4f8bff, #a566ff);
+            display: grid;
+            place-items: center;
+            font-weight: 800;
+            color: #fff;
+            box-shadow: 0 12px 26px rgba(79, 139, 255, 0.28);
+        }
+
+        nav {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+        }
+
+        nav a {
+            color: rgba(245, 247, 255, 0.82);
+            text-decoration: none;
+            font-size: 0.95rem;
+        }
+
+        .hero {
+            display: grid;
+            gap: 2rem;
+            align-items: center;
+            grid-template-columns: minmax(0, 1fr);
+        }
+
+        .hero-copy {
+            max-width: 640px;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.55rem 0.9rem;
+            border-radius: 999px;
+            background: rgba(255,255,255,0.06);
+            color: #8ea0ff;
+            font-size: 0.9rem;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        .hero-copy h1 {
+            font-size: clamp(2.75rem, 4vw, 4.5rem);
+            margin: 1rem 0 1rem;
+            line-height: 0.95;
+            letter-spacing: -0.04em;
+        }
+
+        .hero-copy p {
+            font-size: 1.05rem;
+            color: #d7ddee;
+            margin: 0 0 1.75rem;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .button,
+        .button.secondary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 3rem;
+            padding: 0 1.5rem;
+            border-radius: 999px;
+            border: none;
+            cursor: pointer;
+            font-weight: 700;
+            text-decoration: none;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+        }
+
+        .button {
+            background: linear-gradient(135deg, #7f83ff, #5ec9ff);
+            color: #09101f;
+            box-shadow: 0 18px 40px rgba(94, 201, 255, 0.2);
+        }
+
+        .button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 22px 44px rgba(94, 201, 255, 0.28);
+        }
+
+        .button.secondary {
+            background: rgba(255,255,255,0.06);
+            color: #f5f7ff;
+        }
+
+        .feature-grid {
+            display: grid;
+            gap: 1rem;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            margin-top: 2rem;
+        }
+
+        .feature-card {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 24px;
+            padding: 1.3rem 1.2rem;
+            backdrop-filter: blur(14px);
+        }
+
+        .feature-card h3 {
+            margin: 0 0 0.75rem;
+            font-size: 1rem;
+        }
+
+        .feature-card p {
+            margin: 0;
+            color: #c9d0ff;
+            font-size: 0.95rem;
+        }
+
+        .hero-visual {
+            position: relative;
+            overflow: hidden;
+            border-radius: 36px;
+            min-height: 360px;
+            background: linear-gradient(180deg, rgba(43,54,124,0.55), rgba(7,11,24,0.95));
+            border: 1px solid rgba(255,255,255,0.08);
+            box-shadow: 0 30px 80px rgba(5, 8, 18, 0.4);
+        }
+
+        .hero-visual::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 70% 20%, rgba(124, 179, 255, 0.25), transparent 18%),
+                        radial-gradient(circle at 25% 80%, rgba(126, 95, 255, 0.18), transparent 20%);
+            pointer-events: none;
+        }
+
+        .visual-copy {
+            position: absolute;
+            left: 1.5rem;
+            bottom: 1.5rem;
+            z-index: 1;
+            max-width: 420px;
+        }
+
+        .visual-copy h2 {
+            margin: 0 0 0.75rem;
+            font-size: 1.8rem;
+        }
+
+        .visual-copy p {
+            margin: 0;
+            color: #d6dbff;
+        }
+
+        .visual-shape {
+            position: absolute;
+            inset: -30px 0 0 -30px;
+            background: radial-gradient(circle at top left, rgba(94, 201, 255, 0.12), transparent 22%),
+                        radial-gradient(circle at bottom right, rgba(158, 102, 255, 0.14), transparent 18%);
+        }
+
+        footer {
+            text-align: center;
+            padding-top: 1rem;
+            color: rgba(245, 247, 255, 0.6);
+            font-size: 0.95rem;
+        }
+
+        @media (min-width: 900px) {
+            .hero {
+                grid-template-columns: 1.05fr 0.95fr;
+                align-items: center;
+            }
+        }
+    </style>
 </head>
 <body>
-    <section>
-        <h1>dfghjklcvbnm</h1>
-    </section>
+    <main class="page">
+        <header>
+            <a class="brand" href="#">
+                <span class="brand-mark">SR</span>
+                <div>
+                    <strong>Sky Route Gamer</strong>
+                    <div style="font-size:0.9rem; color: rgba(245,247,255,0.7);">Game route landing experience</div>
+                </div>
+            </a>
+            <nav>
+                <a href="#features">Features</a>
+                <a href="#about">About</a>
+                <a href="#launch">Launch</a>
+            </nav>
+        </header>
+
+        <section class="hero">
+            <div class="hero-copy">
+                <span class="eyebrow">Route Planner</span>
+                <h1>Master every sky route with a cinematic game landing experience.</h1>
+                <p>Build excitement for your next flight route game. Show gameplay, route mastery, and launch action in a sleek, high-energy landing page.
+                </p>
+                <div class="hero-actions">
+                    <a class="button" href="#launch">Play Route</a>
+                    <a class="button secondary" href="#features">See Features</a>
+                </div>
+
+                <div class="feature-grid" id="features">
+                    <article class="feature-card">
+                        <h3>Immersive aerial routes</h3>
+                        <p>Discover dynamic sky corridors, mission goals, and scalable route strategy for every challenge.</p>
+                    </article>
+                    <article class="feature-card">
+                        <h3>Live leaderboard</h3>
+                        <p>Track route speed, precision, and score in real time across the global pilot rankings.</p>
+                    </article>
+                    <article class="feature-card">
+                        <h3>Cross-platform launch</h3>
+                        <p>Prepare your route adventure for desktop, tablet, and mobile with a polished landing interface.</p>
+                    </article>
+                </div>
+            </div>
+
+            <div class="hero-visual" aria-hidden="true">
+                <div class="visual-shape"></div>
+                <div class="visual-copy">
+                    <h2>Navigate the clouds</h2>
+                    <p>Follow the optimal path, dodge hazards, and feel the rush of every perfect flight.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="about">
+            <div style="padding: 2rem; border-radius: 32px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08);">
+                <h2 style="margin-top:0;">What makes Sky Route Gamer special?</h2>
+                <p style="margin:0; color:#c9d0ff; font-size:1rem;">A landing page built for route-focused games should feel fast, polished, and full of motion. Use this page as the starting point for your game launch, mission briefing, or route selection hub.</p>
+            </div>
+        </section>
+
+        <section id="launch" style="display:grid; gap:1rem; padding:2rem; border-radius:32px; background: rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08);">
+            <h2>Ready to launch your route?</h2>
+            <p style="margin:0; color:#d7ddee;">Press play, share your route, and invite the squad to conquer the sky together. The next flight begins with a single click.</p>
+            <a class="button" href="#" style="width:fit-content;">Launch Now</a>
+        </section>
+    </main>
+
+    <footer>
+        &copy; 2026 Sky Route Gamer. Your game route landing page is ready.
+    </footer>
 </body>
 </html>
