@@ -1,306 +1,654 @@
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Skyroute Gamers</title>
-    <style>
-        :root {
-            color-scheme: dark;
-            font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            background: #070b18;
-            color: #f5f7ff;
-        }
+    <title>Skyroute Gamers | Next-Gen Driving & Simulation Mobile Games</title>
+    <meta name="description" content="Official website of Skyroute Gamers. Creators of high-octane mobile simulators: Euro Truck Driving, 4x4 Offroad Jeep, Police Pursuits, and Bike Stunts on Google Play.">
+    <meta name="theme-color" content="#0d0f17">
 
-        * {
-            box-sizing: border-box;
-        }
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-        body {
-            margin: 0;
-            min-height: 100vh;
-            line-height: 1.6;
-            background: radial-gradient(circle at top, rgba(102, 126, 234, 0.25), transparent 35%),
-                        linear-gradient(180deg, #0d1223 0%, #070b18 100%);
-        }
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-        .page {
-            display: flex;
-            flex-direction: column;
-            gap: 4rem;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem 1.5rem 3rem;
-        }
-
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .brand {
-            display: flex;
-            align-items: center;
-            gap: 0.85rem;
-            text-decoration: none;
-            color: inherit;
-        }
-
-        .brand-mark {
-            width: 44px;
-            height: 44px;
-            border-radius: 16px;
-            background: linear-gradient(135deg, #4f8bff, #a566ff);
-            display: grid;
-            place-items: center;
-            font-weight: 800;
-            color: #fff;
-            box-shadow: 0 12px 26px rgba(79, 139, 255, 0.28);
-        }
-
-        nav {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-            justify-content: flex-end;
-        }
-
-        nav a {
-            color: rgba(245, 247, 255, 0.82);
-            text-decoration: none;
-            font-size: 0.95rem;
-        }
-
-        .hero {
-            display: grid;
-            gap: 2rem;
-            align-items: center;
-            grid-template-columns: minmax(0, 1fr);
-        }
-
-        .hero-copy {
-            max-width: 640px;
-        }
-
-        .eyebrow {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.55rem 0.9rem;
-            border-radius: 999px;
-            background: rgba(255,255,255,0.06);
-            color: #8ea0ff;
-            font-size: 0.9rem;
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
-        }
-
-        .hero-copy h1 {
-            font-size: clamp(2.75rem, 4vw, 4.5rem);
-            margin: 1rem 0 1rem;
-            line-height: 0.95;
-            letter-spacing: -0.04em;
-        }
-
-        .hero-copy p {
-            font-size: 1.05rem;
-            color: #d7ddee;
-            margin: 0 0 1.75rem;
-        }
-
-        .hero-actions {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-
-        .button,
-        .button.secondary {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 3rem;
-            padding: 0 1.5rem;
-            border-radius: 999px;
-            border: none;
-            cursor: pointer;
-            font-weight: 700;
-            text-decoration: none;
-            transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
-        }
-
-        .button {
-            background: linear-gradient(135deg, #7f83ff, #5ec9ff);
-            color: #09101f;
-            box-shadow: 0 18px 40px rgba(94, 201, 255, 0.2);
-        }
-
-        .button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 22px 44px rgba(94, 201, 255, 0.28);
-        }
-
-        .button.secondary {
-            background: rgba(255,255,255,0.06);
-            color: #f5f7ff;
-        }
-
-        .feature-grid {
-            display: grid;
-            gap: 1rem;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            margin-top: 2rem;
-        }
-
-        .feature-card {
-            background: rgba(255,255,255,0.04);
-            border: 1px solid rgba(255,255,255,0.08);
-            border-radius: 24px;
-            padding: 1.3rem 1.2rem;
-            backdrop-filter: blur(14px);
-        }
-
-        .feature-card h3 {
-            margin: 0 0 0.75rem;
-            font-size: 1rem;
-        }
-
-        .feature-card p {
-            margin: 0;
-            color: #c9d0ff;
-            font-size: 0.95rem;
-        }
-
-        .hero-visual {
-            position: relative;
-            overflow: hidden;
-            border-radius: 36px;
-            min-height: 360px;
-            background: linear-gradient(180deg, rgba(43,54,124,0.55), rgba(7,11,24,0.95));
-            border: 1px solid rgba(255,255,255,0.08);
-            box-shadow: 0 30px 80px rgba(5, 8, 18, 0.4);
-        }
-
-        .hero-visual::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(circle at 70% 20%, rgba(124, 179, 255, 0.25), transparent 18%),
-                        radial-gradient(circle at 25% 80%, rgba(126, 95, 255, 0.18), transparent 20%);
-            pointer-events: none;
-        }
-
-        .visual-copy {
-            position: absolute;
-            left: 1.5rem;
-            bottom: 1.5rem;
-            z-index: 1;
-            max-width: 420px;
-        }
-
-        .visual-copy h2 {
-            margin: 0 0 0.75rem;
-            font-size: 1.8rem;
-        }
-
-        .visual-copy p {
-            margin: 0;
-            color: #d6dbff;
-        }
-
-        .visual-shape {
-            position: absolute;
-            inset: -30px 0 0 -30px;
-            background: radial-gradient(circle at top left, rgba(94, 201, 255, 0.12), transparent 22%),
-                        radial-gradient(circle at bottom right, rgba(158, 102, 255, 0.14), transparent 18%);
-        }
-
-        footer {
-            text-align: center;
-            padding-top: 1rem;
-            color: rgba(245, 247, 255, 0.6);
-            font-size: 0.95rem;
-        }
-
-        @media (min-width: 900px) {
-            .hero {
-                grid-template-columns: 1.05fr 0.95fr;
-                align-items: center;
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#0a0c14',
+                            card: '#121624',
+                            border: '#1f293d',
+                            cyan: '#00f0ff',
+                            purple: '#7000ff',
+                            accent: '#ff0055'
+                        }
+                    },
+                    fontFamily: {
+                        orbitron: ['Orbitron', 'sans-serif'],
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    }
+                }
             }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #0a0c14;
+            color: #e2e8f0;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            overflow-x: hidden;
+        }
+
+        .font-orbitron {
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        /* Neon Glow Utility Effects */
+        .neon-glow-cyan {
+            box-shadow: 0 0 25px rgba(0, 240, 255, 0.25);
+        }
+        .neon-glow-purple {
+            box-shadow: 0 0 25px rgba(112, 0, 255, 0.25);
+        }
+        .text-glow-cyan {
+            text-shadow: 0 0 12px rgba(0, 240, 255, 0.6);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0a0c14;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1f293d;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #00f0ff;
+        }
+
+        /* Grid background pattern */
+        .bg-grid-pattern {
+            background-size: 40px 40px;
+            background-image: 
+                linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
         }
     </style>
 </head>
-<body>
-    <main class="page">
-        <header>
-            <a class="brand" href="#">
-                <span class="brand-mark">SR</span>
-                <div>
-                    <strong>SKYROUTE GAMERS</strong>
-                    <div style="font-size:0.9rem; color: rgba(245,247,255,0.7);">Game route landing experience</div>
+<body class="bg-brand-dark text-slate-200 antialiased selection:bg-brand-cyan selection:text-black">
+
+    <!-- Header / Navbar -->
+    <header class="fixed top-0 left-0 w-full z-50 bg-brand-dark/80 backdrop-blur-xl border-b border-brand-border/60 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                
+                <!-- Brand Logo -->
+                <a href="#" class="flex items-center gap-3 group">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-purple to-brand-cyan p-[2px] transition-transform duration-300 group-hover:scale-105">
+                        <div class="w-full h-full bg-brand-dark rounded-[10px] flex items-center justify-center">
+                            <i class="fa-solid fa-gamepad text-brand-cyan text-xl group-hover:rotate-12 transition-transform"></i>
+                        </div>
+                    </div>
+                    <span class="font-orbitron font-extrabold text-xl tracking-wider text-white">
+                        SKYROUTE <span class="text-brand-cyan">GAMERS</span>
+                    </span>
+                </a>
+
+                <!-- Desktop Nav -->
+                <nav class="hidden md:flex items-center gap-8 font-medium text-sm">
+                    <a href="#games" class="hover:text-brand-cyan transition-colors">OUR GAMES</a>
+                    <a href="#features" class="hover:text-brand-cyan transition-colors">PHYSICS & TECH</a>
+                    <a href="#about" class="hover:text-brand-cyan transition-colors">ABOUT STUDIO</a>
+                    <a href="#contact" class="hover:text-brand-cyan transition-colors">CONTACT</a>
+                </nav>
+
+                <!-- Action Button -->
+                <div class="hidden md:flex items-center">
+                    <a href="https://play.google.com/store/apps/developer?id=Skyroute+Gamers" 
+                       target="_blank" rel="noopener"
+                       class="relative inline-flex items-center gap-2 px-6 py-2.5 rounded-full font-semibold text-sm text-black bg-brand-cyan hover:bg-white transition-all duration-300 shadow-[0_0_20px_rgba(0,240,255,0.4)] hover:shadow-[0_0_30px_rgba(0,240,255,0.8)] transform hover:-translate-y-0.5">
+                        <i class="fa-brands fa-google-play text-base"></i>
+                        Google Play Store
+                    </a>
                 </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden text-2xl text-slate-300 focus:outline-none p-2">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Nav -->
+        <div id="mobile-menu" class="hidden md:hidden bg-brand-card border-b border-brand-border px-6 py-6 space-y-4">
+            <a href="#games" class="block text-slate-200 hover:text-brand-cyan font-medium py-1">OUR GAMES</a>
+            <a href="#features" class="block text-slate-200 hover:text-brand-cyan font-medium py-1">PHYSICS & TECH</a>
+            <a href="#about" class="block text-slate-200 hover:text-brand-cyan font-medium py-1">ABOUT STUDIO</a>
+            <a href="#contact" class="block text-slate-200 hover:text-brand-cyan font-medium py-1">CONTACT</a>
+            <a href="https://play.google.com/store/apps/developer?id=Skyroute+Gamers" target="_blank" class="flex items-center justify-center gap-2 w-full py-3 rounded-xl bg-brand-cyan text-black font-bold">
+                <i class="fa-brands fa-google-play"></i> Visit Google Play
             </a>
-            <nav>
-                <a href="#features">Features</a>
-                <a href="#about">About</a>
-                <a href="#launch">Launch</a>
-            </nav>
-        </header>
+        </div>
+    </header>
 
-        <section class="hero">
-            <div class="hero-copy">
-                <span class="eyebrow">Route Planner</span>
-                <h1>Master every sky route with a cinematic game landing experience.</h1>
-                <p>Build excitement for your next flight route game. Show gameplay, route mastery, and launch action in a sleek, high-energy landing page.
+    <!-- Hero Section -->
+    <section class="relative min-h-screen pt-32 pb-20 flex items-center justify-center bg-grid-pattern overflow-hidden">
+        <!-- Glow Orbs -->
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-brand-cyan/10 rounded-full blur-[140px] pointer-events-none"></div>
+        <div class="absolute bottom-10 right-10 w-[400px] h-[400px] bg-brand-purple/20 rounded-full blur-[140px] pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-border/40 border border-brand-cyan/30 text-brand-cyan text-xs font-semibold uppercase tracking-wider mb-8 backdrop-blur-md">
+                <span class="w-2 h-2 rounded-full bg-brand-cyan animate-ping"></span>
+                Leading Mobile Simulation Studio
+            </div>
+
+            <h1 class="font-orbitron text-4xl sm:text-6xl md:text-7xl font-black tracking-tight text-white mb-6 leading-tight">
+                REALISTIC SIMULATION.<br>
+                <span class="bg-gradient-to-r from-brand-cyan via-blue-400 to-brand-purple bg-clip-text text-transparent text-glow-cyan">
+                    PURE DRIVING PASSION.
+                </span>
+            </h1>
+
+            <p class="max-w-3xl mx-auto text-slate-400 text-lg sm:text-xl font-normal mb-10 leading-relaxed">
+                Skyroute Gamers builds immersive mobile driving simulators, offroad 4x4 challenges, truck transport logistics, and high-octane stunt racing titles on Android.
+            </p>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
+                <a href="#games" class="w-full sm:w-auto px-8 py-4 rounded-xl font-bold bg-gradient-to-r from-brand-cyan to-blue-500 text-black hover:opacity-90 transition shadow-[0_0_30px_rgba(0,240,255,0.3)] flex items-center justify-center gap-3">
+                    <i class="fa-solid fa-gamepad"></i> Explore Games Library
+                </a>
+                <a href="https://play.google.com/store/apps/developer?id=Skyroute+Gamers" target="_blank" rel="noopener" class="w-full sm:w-auto px-8 py-4 rounded-xl font-bold bg-brand-card hover:bg-brand-border text-white border border-brand-border transition flex items-center justify-center gap-3">
+                    <i class="fa-brands fa-google-play text-brand-cyan"></i> Visit Store Profile
+                </a>
+            </div>
+
+            <!-- Dynamic Live Stats Bar -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto pt-8 border-t border-brand-border/60">
+                <div class="p-4 rounded-2xl bg-brand-card/40 border border-brand-border/40 backdrop-blur-sm">
+                    <div class="font-orbitron text-3xl font-extrabold text-brand-cyan mb-1" id="stat-downloads">10M+</div>
+                    <div class="text-xs text-slate-400 uppercase tracking-wider font-semibold">Total Downloads</div>
+                </div>
+                <div class="p-4 rounded-2xl bg-brand-card/40 border border-brand-border/40 backdrop-blur-sm">
+                    <div class="font-orbitron text-3xl font-extrabold text-white mb-1">8+</div>
+                    <div class="text-xs text-slate-400 uppercase tracking-wider font-semibold">Published Titles</div>
+                </div>
+                <div class="p-4 rounded-2xl bg-brand-card/40 border border-brand-border/40 backdrop-blur-sm">
+                    <div class="font-orbitron text-3xl font-extrabold text-brand-cyan mb-1">4.2★</div>
+                    <div class="text-xs text-slate-400 uppercase tracking-wider font-semibold">Average Rating</div>
+                </div>
+                <div class="p-4 rounded-2xl bg-brand-card/40 border border-brand-border/40 backdrop-blur-sm">
+                    <div class="font-orbitron text-3xl font-extrabold text-white mb-1">150+</div>
+                    <div class="text-xs text-slate-400 uppercase tracking-wider font-semibold">Global Countries</div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Games Showcase Section -->
+    <section id="games" class="py-24 bg-brand-dark relative z-10 border-t border-brand-border/40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <h2 class="font-orbitron text-3xl sm:text-5xl font-extrabold text-white mb-4">OUR GAME PORTFOLIO</h2>
+                <p class="text-slate-400">Discover our top-rated simulator and racing experiences available on Google Play.</p>
+            </div>
+
+            <!-- Filter Buttons -->
+            <div class="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-12" id="filter-container">
+                <button data-filter="all" class="filter-btn active px-5 py-2.5 rounded-xl font-semibold text-sm bg-brand-cyan text-black shadow-[0_0_15px_rgba(0,240,255,0.3)] transition">All Games</button>
+                <button data-filter="truck" class="filter-btn px-5 py-2.5 rounded-xl font-semibold text-sm bg-brand-card text-slate-300 border border-brand-border hover:border-brand-cyan transition">Truck Simulators</button>
+                <button data-filter="offroad" class="filter-btn px-5 py-2.5 rounded-xl font-semibold text-sm bg-brand-card text-slate-300 border border-brand-border hover:border-brand-cyan transition">4x4 & Offroad</button>
+                <button data-filter="driving" class="filter-btn px-5 py-2.5 rounded-xl font-semibold text-sm bg-brand-card text-slate-300 border border-brand-border hover:border-brand-cyan transition">Car & Police</button>
+                <button data-filter="stunt" class="filter-btn px-5 py-2.5 rounded-xl font-semibold text-sm bg-brand-card text-slate-300 border border-brand-border hover:border-brand-cyan transition">Moto & Stunts</button>
+            </div>
+
+            <!-- Games Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="games-grid">
+                
+                <!-- Game Card 1: Truck Simulator Europe -->
+                <div class="game-card group rounded-2xl bg-brand-card border border-brand-border overflow-hidden hover:border-brand-cyan/60 transition-all duration-300 hover:-translate-y-2" data-category="truck">
+                    <div class="relative h-52 bg-slate-800 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=800&q=80" alt="Truck Simulator Game Europe 3D" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                        <div class="absolute top-3 right-3 bg-brand-dark/80 backdrop-blur-md px-3 py-1 rounded-full text-xs font-bold text-brand-cyan border border-brand-cyan/30">
+                            ★ 4.3 | Truck Sim
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-orbitron font-bold text-xl text-white mb-2 group-hover:text-brand-cyan transition-colors">Truck Simulator Game Europe 3D</h3>
+                        <p class="text-slate-400 text-sm mb-6 line-clamp-2">Experience long-haul cargo transport, realistic manual transmissions, highway traffic, and detailed European trucks.</p>
+                        <div class="flex items-center justify-between pt-4 border-t border-brand-border/50">
+                            <button onclick="openGameModal('truck-europe')" class="text-xs font-bold uppercase tracking-wider text-slate-300 hover:text-white flex items-center gap-1">
+                                Details <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                            </button>
+                            <a href="https://play.google.com/store/apps/details?id=com.sg.truck.simulator.game.europe" target="_blank" class="px-4 py-2 rounded-lg bg-brand-cyan text-black font-bold text-xs flex items-center gap-2 hover:bg-white transition">
+                                <i class="fa-brands fa-google-play"></i> Install
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Game Card 2: Offroad Jeep Driving 4x4 -->
+                <div class="game-card group rounded-2xl bg-brand-card border border-brand-border overflow-hidden hover:border-brand-cyan/60 transition-all duration-300 hover:-translate-y-2" data-category="offroad">
+                    <div class="relative h-52 bg-slate-800 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=800&q=80" alt="Offroad Jeep Driving 4x4 Jeep" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                        <div class="absolute top-3 right-3 bg-brand-dark/80 backdrop-blur-md px-3 py-1 rounded-full text-xs font-bold text-brand-cyan border border-brand-cyan/30">
+                            ★ 4.2 | Offroad
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-orbitron font-bold text-xl text-white mb-2 group-hover:text-brand-cyan transition-colors">Offroad Jeep Driving 4x4 Jeep</h3>
+                        <p class="text-slate-400 text-sm mb-6 line-clamp-2">Conquer extreme mountain trails, muddy paths, and steep hill climbs with realistic 4WD physics and suspension systems.</p>
+                        <div class="flex items-center justify-between pt-4 border-t border-brand-border/50">
+                            <button onclick="openGameModal('jeep-4x4')" class="text-xs font-bold uppercase tracking-wider text-slate-300 hover:text-white flex items-center gap-1">
+                                Details <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                            </button>
+                            <a href="https://play.google.com/store/apps/developer?id=Skyroute+Gamers" target="_blank" class="px-4 py-2 rounded-lg bg-brand-cyan text-black font-bold text-xs flex items-center gap-2 hover:bg-white transition">
+                                <i class="fa-brands fa-google-play"></i> Install
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Game Card 3: Bike Stunt Game Moto Racing 3D -->
+                <div class="game-card group rounded-2xl bg-brand-card border border-brand-border overflow-hidden hover:border-brand-cyan/60 transition-all duration-300 hover:-translate-y-2" data-category="stunt">
+                    <div class="relative h-52 bg-slate-800 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=800&q=80" alt="Bike Stunt Game Moto Racing 3d" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                        <div class="absolute top-3 right-3 bg-brand-dark/80 backdrop-blur-md px-3 py-1 rounded-full text-xs font-bold text-brand-cyan border border-brand-cyan/30">
+                            ★ 4.4 | Moto Stunt
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-orbitron font-bold text-xl text-white mb-2 group-hover:text-brand-cyan transition-colors">Bike Stunt Game Moto Racing 3D</h3>
+                        <p class="text-slate-400 text-sm mb-6 line-clamp-2">Perform insane flips, sky-high mega ramp jumps, and precision stunt obstacle courses on high-speed dirt bikes.</p>
+                        <div class="flex items-center justify-between pt-4 border-t border-brand-border/50">
+                            <button onclick="openGameModal('bike-stunt')" class="text-xs font-bold uppercase tracking-wider text-slate-300 hover:text-white flex items-center gap-1">
+                                Details <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                            </button>
+                            <a href="https://play.google.com/store/apps/developer?id=Skyroute+Gamers" target="_blank" class="px-4 py-2 rounded-lg bg-brand-cyan text-black font-bold text-xs flex items-center gap-2 hover:bg-white transition">
+                                <i class="fa-brands fa-google-play"></i> Install
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Game Card 4: Bus Games Coach Driving 3D -->
+                <div class="game-card group rounded-2xl bg-brand-card border border-brand-border overflow-hidden hover:border-brand-cyan/60 transition-all duration-300 hover:-translate-y-2" data-category="truck">
+                    <div class="relative h-52 bg-slate-800 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1570125909232-eb263c188f7e?auto=format&fit=crop&w=800&q=80" alt="Bus Games: Coach Driving 3D" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                        <div class="absolute top-3 right-3 bg-brand-dark/80 backdrop-blur-md px-3 py-1 rounded-full text-xs font-bold text-brand-cyan border border-brand-cyan/30">
+                            ★ 4.1 | Coach Sim
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-orbitron font-bold text-xl text-white mb-2 group-hover:text-brand-cyan transition-colors">Bus Games: Coach Driving 3D</h3>
+                        <p class="text-slate-400 text-sm mb-6 line-clamp-2">Pick up passengers, manage transit schedules, and navigate massive city coaches through tight traffic turns.</p>
+                        <div class="flex items-center justify-between pt-4 border-t border-brand-border/50">
+                            <button onclick="openGameModal('bus-coach')" class="text-xs font-bold uppercase tracking-wider text-slate-300 hover:text-white flex items-center gap-1">
+                                Details <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                            </button>
+                            <a href="https://play.google.com/store/apps/developer?id=Skyroute+Gamers" target="_blank" class="px-4 py-2 rounded-lg bg-brand-cyan text-black font-bold text-xs flex items-center gap-2 hover:bg-white transition">
+                                <i class="fa-brands fa-google-play"></i> Install
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Game Card 5: Police Simulator Cop Car Chase -->
+                <div class="game-card group rounded-2xl bg-brand-card border border-brand-border overflow-hidden hover:border-brand-cyan/60 transition-all duration-300 hover:-translate-y-2" data-category="driving">
+                    <div class="relative h-52 bg-slate-800 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?auto=format&fit=crop&w=800&q=80" alt="Police Simulator Cop Car Chase" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                        <div class="absolute top-3 right-3 bg-brand-dark/80 backdrop-blur-md px-3 py-1 rounded-full text-xs font-bold text-brand-cyan border border-brand-cyan/30">
+                            ★ 4.3 | Police Chase
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-orbitron font-bold text-xl text-white mb-2 group-hover:text-brand-cyan transition-colors">Police Simulator Cop Car Chase</h3>
+                        <p class="text-slate-400 text-sm mb-6 line-clamp-2">Engage high-speed siren pursuits, stop illegal street racers, and patrol open-world city environments.</p>
+                        <div class="flex items-center justify-between pt-4 border-t border-brand-border/50">
+                            <button onclick="openGameModal('police-cop')" class="text-xs font-bold uppercase tracking-wider text-slate-300 hover:text-white flex items-center gap-1">
+                                Details <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                            </button>
+                            <a href="https://play.google.com/store/apps/developer?id=Skyroute+Gamers" target="_blank" class="px-4 py-2 rounded-lg bg-brand-cyan text-black font-bold text-xs flex items-center gap-2 hover:bg-white transition">
+                                <i class="fa-brands fa-google-play"></i> Install
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Game Card 6: Indian Truck Games Drive -->
+                <div class="game-card group rounded-2xl bg-brand-card border border-brand-border overflow-hidden hover:border-brand-cyan/60 transition-all duration-300 hover:-translate-y-2" data-category="truck">
+                    <div class="relative h-52 bg-slate-800 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1586191582056-a15cd3cb923b?auto=format&fit=crop&w=800&q=80" alt="Indian Truck Games Truck Drive" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                        <div class="absolute top-3 right-3 bg-brand-dark/80 backdrop-blur-md px-3 py-1 rounded-full text-xs font-bold text-brand-cyan border border-brand-cyan/30">
+                            ★ 4.2 | Cargo Sim
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-orbitron font-bold text-xl text-white mb-2 group-hover:text-brand-cyan transition-colors">Indian Truck Games Truck Drive</h3>
+                        <p class="text-slate-400 text-sm mb-6 line-clamp-2">Authentic decorated cargo trucks, challenging mountain passes, heavy load deliveries, and traditional horn sounds.</p>
+                        <div class="flex items-center justify-between pt-4 border-t border-brand-border/50">
+                            <button onclick="openGameModal('indian-truck')" class="text-xs font-bold uppercase tracking-wider text-slate-300 hover:text-white flex items-center gap-1">
+                                Details <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                            </button>
+                            <a href="https://play.google.com/store/apps/developer?id=Skyroute+Gamers" target="_blank" class="px-4 py-2 rounded-lg bg-brand-cyan text-black font-bold text-xs flex items-center gap-2 hover:bg-white transition">
+                                <i class="fa-brands fa-google-play"></i> Install
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Studio Features & Engine Tech -->
+    <section id="features" class="py-24 bg-brand-card/40 border-t border-brand-border/40 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                
+                <div>
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-purple/20 text-brand-purple text-xs font-bold uppercase mb-4">
+                        Core Gameplay Pillars
+                    </div>
+                    <h2 class="font-orbitron text-3xl sm:text-5xl font-black text-white mb-6 leading-tight">
+                        ENGINEERED FOR REALISM & PERFORMANCE
+                    </h2>
+                    <p class="text-slate-400 mb-8 leading-relaxed">
+                        At Skyroute Gamers, we combine customized physics engines with mobile hardware optimization to deliver smooth 60 FPS gameplay, tactile controls, and detailed 3D vehicle models.
+                    </p>
+
+                    <div class="space-y-6">
+                        <div class="flex gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-brand-cyan/10 border border-brand-cyan/30 flex items-center justify-center shrink-0">
+                                <i class="fa-solid fa-gauge-high text-brand-cyan text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-orbitron font-bold text-white text-lg mb-1">Custom Vehicle Physics</h3>
+                                <p class="text-slate-400 text-sm">Engine torque curves, tire slip factors, weight transfer, and realistic brake responsiveness tailored for each vehicle type.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-brand-purple/10 border border-brand-purple/30 flex items-center justify-center shrink-0">
+                                <i class="fa-solid fa-[#7000ff] text-brand-purple text-xl"></i>
+                                <i class="fa-solid fa-sliders text-purple-400 text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-orbitron font-bold text-white text-lg mb-1">Intuitive Mobile HUD</h3>
+                                <p class="text-slate-400 text-sm">Multiple control options including Tilt Steering, On-Screen Steering Wheels, and Responsive Touch Buttons.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-blue-500/10 border border-blue-500/30 flex items-center justify-center shrink-0">
+                                <i class="fa-solid fa-mobile-screen-button text-blue-400 text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-orbitron font-bold text-white text-lg mb-1">Low-End Device Optimization</h3>
+                                <p class="text-slate-400 text-sm">Dynamic level-of-detail (LOD) and shader scaling ensure crisp graphics even on budget mobile devices.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Graphic Showcase Card -->
+                <div class="relative">
+                    <div class="absolute -inset-1 rounded-3xl bg-gradient-to-r from-brand-cyan to-brand-purple opacity-30 blur-xl"></div>
+                    <div class="relative bg-brand-card border border-brand-border rounded-3xl p-8 overflow-hidden">
+                        <div class="flex items-center justify-between mb-8 border-b border-brand-border/60 pb-4">
+                            <span class="font-orbitron text-xs font-bold text-brand-cyan tracking-widest uppercase">SKYROUTE SIMULATION ENGINE</span>
+                            <span class="text-xs text-slate-500">v3.8 Mobile Build</span>
+                        </div>
+                        
+                        <div class="space-y-4">
+                            <div class="p-4 rounded-xl bg-brand-dark/80 border border-brand-border/40 flex items-center justify-between">
+                                <span class="text-sm font-semibold">Dynamic Weather System</span>
+                                <span class="text-xs px-2.5 py-1 rounded bg-green-500/20 text-green-400 font-bold">Rain / Fog / Day-Night</span>
+                            </div>
+                            <div class="p-4 rounded-xl bg-brand-dark/80 border border-brand-border/40 flex items-center justify-between">
+                                <span class="text-sm font-semibold">Interior Cockpit Cameras</span>
+                                <span class="text-xs px-2.5 py-1 rounded bg-brand-cyan/20 text-brand-cyan font-bold">360° Free Look</span>
+                            </div>
+                            <div class="p-4 rounded-xl bg-brand-dark/80 border border-brand-border/40 flex items-center justify-between">
+                                <span class="text-sm font-semibold">Audio Engine</span>
+                                <span class="text-xs px-2.5 py-1 rounded bg-purple-500/20 text-purple-300 font-bold">Real Diesel & V8 Sounds</span>
+                            </div>
+                        </div>
+
+                        <div class="mt-8 pt-6 border-t border-brand-border/60 text-center">
+                            <a href="https://play.google.com/store/apps/developer?id=Skyroute+Gamers" target="_blank" class="inline-flex items-center gap-2 text-brand-cyan font-bold text-sm hover:underline">
+                                Play Our Games Today <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- About Studio Section -->
+    <section id="about" class="py-24 bg-brand-dark relative z-10 border-t border-brand-border/40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-4xl mx-auto text-center">
+                <div class="w-16 h-16 rounded-2xl bg-brand-cyan/10 border border-brand-cyan/30 mx-auto flex items-center justify-center mb-6">
+                    <i class="fa-solid fa-rocket text-brand-cyan text-2xl"></i>
+                </div>
+                <h2 class="font-orbitron text-3xl sm:text-5xl font-black text-white mb-6">ABOUT SKYROUTE GAMERS</h2>
+                <p class="text-slate-300 text-lg leading-relaxed mb-8">
+                    Skyroute Gamers is a mobile game development studio focused on creating authentic, enjoyable driving and simulation experiences. Our team designs realistic vehicle handling, diverse atmospheric environments, and accessible gameplay loops enjoyed by millions of Android players worldwide.
                 </p>
-                <div class="hero-actions">
-                    <a class="button" href="#launch">Play Route</a>
-                    <a class="button secondary" href="#features">See Features</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Footer -->
+    <footer id="contact" class="bg-brand-card/80 border-t border-brand-border/60 pt-16 pb-12 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mb-12">
+                
+                <div>
+                    <a href="#" class="flex items-center gap-3 mb-4">
+                        <div class="w-8 h-8 rounded-lg bg-brand-cyan text-black flex items-center justify-center font-bold">
+                            <i class="fa-solid fa-gamepad"></i>
+                        </div>
+                        <span class="font-orbitron font-extrabold text-lg text-white">SKYROUTE GAMERS</span>
+                    </a>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                        Creating realistic 3D simulation, truck driving, and offroad mobile games on Google Play.
+                    </p>
                 </div>
 
-                <div class="feature-grid" id="features">
-                    <article class="feature-card">
-                        <h3>Immersive aerial routes</h3>
-                        <p>Discover dynamic sky corridors, mission goals, and scalable route strategy for every challenge.</p>
-                    </article>
-                    <article class="feature-card">
-                        <h3>Live leaderboard</h3>
-                        <p>Track route speed, precision, and score in real time across the global pilot rankings.</p>
-                    </article>
-                    <article class="feature-card">
-                        <h3>Cross-platform launch</h3>
-                        <p>Prepare your route adventure for desktop, tablet, and mobile with a polished landing interface.</p>
-                    </article>
+                <div>
+                    <h4 class="font-orbitron font-bold text-white text-sm tracking-wider uppercase mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-sm text-slate-400">
+                        <li><a href="#games" class="hover:text-brand-cyan transition">Our Games</a></li>
+                        <li><a href="#features" class="hover:text-brand-cyan transition">Engine Tech</a></li>
+                        <li><a href="#about" class="hover:text-brand-cyan transition">About Studio</a></li>
+                        <li><a href="https://play.google.com/store/apps/developer?id=Skyroute+Gamers" target="_blank" class="hover:text-brand-cyan transition">Google Play Developer Profile</a></li>
+                    </ul>
                 </div>
-            </div>
 
-            <div class="hero-visual" aria-hidden="true">
-                <div class="visual-shape"></div>
-                <div class="visual-copy">
-                    <h2>Navigate the clouds</h2>
-                    <p>Follow the optimal path, dodge hazards, and feel the rush of every perfect flight.</p>
+                <div>
+                    <h4 class="font-orbitron font-bold text-white text-sm tracking-wider uppercase mb-4">Developer Contact</h4>
+                    <p class="text-slate-400 text-sm mb-2">For business inquiries, publishing, and support:</p>
+                    <a href="mailto:shaheennazia560@gmail.com" class="text-brand-cyan font-semibold text-sm hover:underline block mb-4">
+                        <i class="fa-solid fa-envelope mr-2"></i> shaheennazia560@gmail.com
+                    </a>
                 </div>
+
             </div>
-        </section>
 
-        <section id="about">
-            <div style="padding: 2rem; border-radius: 32px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08);">
-                <h2 style="margin-top:0;">What makes Sky Route Gamer special?</h2>
-                <p style="margin:0; color:#c9d0ff; font-size:1rem;">A landing page built for route-focused games should feel fast, polished, and full of motion. Use this page as the starting point for your game launch, mission briefing, or route selection hub.</p>
+            <div class="pt-8 border-t border-brand-border/60 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+                <p>&copy; <span id="year"></span> Skyroute Gamers. All rights reserved.</p>
+                <p>Designed for GitHub Pages & Vercel deployment.</p>
             </div>
-        </section>
-
-        <section id="launch" style="display:grid; gap:1rem; padding:2rem; border-radius:32px; background: rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08);">
-            <h2>Ready to launch your route?</h2>
-            <p style="margin:0; color:#d7ddee;">Press play, share your route, and invite the squad to conquer the sky together. The next flight begins with a single click.</p>
-            <a class="button" href="#" style="width:fit-content;">Launch Now</a>
-        </section>
-    </main>
-
-    <footer>
-        &copy; 2026 Sky Route Gamer. Your game route landing page is ready.
+        </div>
     </footer>
+
+    <!-- Game Detail Modal Container -->
+    <div id="game-modal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-md flex items-center justify-center p-4">
+        <div class="bg-brand-card border border-brand-border rounded-2xl max-w-2xl w-full p-6 sm:p-8 relative shadow-2xl">
+            <button onclick="closeGameModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white text-xl p-2">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div id="modal-content">
+                <!-- Dynamically filled by JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="fixed bottom-6 right-6 z-40 hidden p-3 rounded-xl bg-brand-card text-brand-cyan border border-brand-cyan/40 hover:bg-brand-cyan hover:text-black transition duration-300 shadow-lg">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <!-- Embedded Interactive JavaScript -->
+    <script>
+        // Copyright Year
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Category Filtering System
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const gameCards = document.querySelectorAll('.game-card');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => {
+                    b.classList.remove('bg-brand-cyan', 'text-black', 'shadow-[0_0_15px_rgba(0,240,255,0.3)]');
+                    b.classList.add('bg-brand-card', 'text-slate-300');
+                });
+                btn.classList.remove('bg-brand-card', 'text-slate-300');
+                btn.classList.add('bg-brand-cyan', 'text-black', 'shadow-[0_0_15px_rgba(0,240,255,0.3)]');
+
+                const filter = btn.getAttribute('data-filter');
+
+                gameCards.forEach(card => {
+                    if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Game Modal Details Database
+        const gamesData = {
+            'truck-europe': {
+                title: 'Truck Simulator Game Europe 3D',
+                rating: '4.3 ★',
+                genre: 'Truck Transport Simulator',
+                desc: 'Become a master long-haul trucker across European highways. Deliver heavy cargo across cities, upgrade engines, customize cabins, and navigate realistic weather and traffic physics.',
+                features: ['Detailed Euro truck models', 'Realistic manual transmission option', 'Multi-city cargo jobs', 'Dynamic weather cycle'],
+                link: 'https://play.google.com/store/apps/details?id=com.sg.truck.simulator.game.europe'
+            },
+            'jeep-4x4': {
+                title: 'Offroad Jeep Driving 4x4 Jeep',
+                rating: '4.2 ★',
+                genre: '4x4 Offroad Simulator',
+                desc: 'Master rugged mountain trails, muddy terrain, and steep hill climbs with realistic 4WD physics, differential lock controls, and custom offroad Jeeps.',
+                features: ['4x4 wheel drive modes', 'Challenging rock crawl levels', 'Realistic suspension physics', 'Customizable vehicle colors'],
+                link: 'https://play.google.com/store/apps/developer?id=Skyroute+Gamers'
+            },
+            'bike-stunt': {
+                title: 'Bike Stunt Game Moto Racing 3D',
+                rating: '4.4 ★',
+                genre: 'Moto Stunt Racing',
+                desc: 'Perform high-flying acrobatic jumps, mid-air backflips, and navigate narrow sky tracks on high-powered stunt motorcycles.',
+                features: ['Mega ramp sky tracks', 'Multiple stunt motorbikes', 'Smooth tilt and button controls', 'Dynamic camera angles'],
+                link: 'https://play.google.com/store/apps/developer?id=Skyroute+Gamers'
+            },
+            'bus-coach': {
+                title: 'Bus Games: Coach Driving 3D',
+                rating: '4.1 ★',
+                genre: 'Transit Coach Simulator',
+                desc: 'Drive massive passenger buses through bustling city terminals and scenic highway passenger routes.',
+                features: ['Passenger pick and drop system', 'Realistic bus interiors', 'City traffic AI', 'Multiple control options'],
+                link: 'https://play.google.com/store/apps/developer?id=Skyroute+Gamers'
+            },
+            'police-cop': {
+                title: 'Police Simulator Cop Car Chase',
+                rating: '4.3 ★',
+                genre: 'Action Cop Chase',
+                desc: 'Patrol city streets, respond to emergency dispatch calls, and pursue illegal street racers in high-speed police cruisers.',
+                features: ['Siren and light controls', 'High-speed chase mechanics', 'Open city map', 'Multiple police interceptors'],
+                link: 'https://play.google.com/store/apps/developer?id=Skyroute+Gamers'
+            },
+            'indian-truck': {
+                title: 'Indian Truck Games Truck Drive',
+                rating: '4.2 ★',
+                genre: 'Desi Cargo Simulator',
+                desc: 'Drive traditional art-decorated heavy cargo trucks through dangerous mountain passes and rural routes.',
+                features: ['Traditional truck artwork', 'Heavy load physics', 'Mountain driving routes', 'Authentic sound effects'],
+                link: 'https://play.google.com/store/apps/developer?id=Skyroute+Gamers'
+            }
+        };
+
+        function openGameModal(gameKey) {
+            const data = gamesData[gameKey];
+            if (!data) return;
+
+            const modalContent = document.getElementById('modal-content');
+            modalContent.innerHTML = `
+                <div class="inline-block px-3 py-1 rounded-full bg-brand-cyan/20 text-brand-cyan font-bold text-xs mb-3">
+                    ${data.genre} • ${data.rating}
+                </div>
+                <h3 class="font-orbitron font-bold text-2xl text-white mb-3">${data.title}</h3>
+                <p class="text-slate-300 text-sm mb-6 leading-relaxed">${data.desc}</p>
+                <div class="mb-6">
+                    <h4 class="font-orbitron text-xs font-bold text-slate-400 uppercase tracking-wider mb-3">Key Gameplay Features:</h4>
+                    <ul class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm text-slate-300">
+                        ${data.features.map(f => `<li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-brand-cyan text-xs"></i> ${f}</li>`).join('')}
+                    </ul>
+                </div>
+                <div class="flex items-center gap-4 pt-4 border-t border-brand-border">
+                    <a href="${data.link}" target="_blank" class="flex-1 py-3 rounded-xl bg-brand-cyan text-black font-bold text-center hover:bg-white transition flex items-center justify-center gap-2">
+                        <i class="fa-brands fa-google-play"></i> Get on Google Play
+                    </a>
+                </div>
+            `;
+            document.getElementById('game-modal').classList.remove('hidden');
+        }
+
+        function closeGameModal() {
+            document.getElementById('game-modal').classList.add('hidden');
+        }
+
+        // Back to Top Button Visibility
+        const backToTopBtn = document.getElementById('back-to-top');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 400) {
+                backToTopBtn.classList.remove('hidden');
+            } else {
+                backToTopBtn.classList.add('hidden');
+            }
+        });
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
 </body>
 </html>
